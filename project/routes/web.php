@@ -1,22 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('login');
-});
-Route::get('/user',function () {
-    return view('user');
-});
-Route::get('/admin',function () { 
-    return view('admin');
-});
-Route::get('/register',function () {
-    return view('register');
-});
-Route::post('/task',function () { 
-    return view('taks');
-});
-Route::get('/members',function () { 
-    return view('members');
-});
+Route::get('/',[AdminController::class, 'index']);
+Route::get('/user',[UserController::class,'index']);
+Route::get('/login',  [AuthController::class,'login']);
+Route::get('/register',[AuthController::class,'register']);
